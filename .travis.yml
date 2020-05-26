@@ -1,0 +1,22 @@
+---
+language: python
+
+# Test the current, major versions.
+python:
+  - "3.6"
+  - "3.7"
+  - "3.8"
+
+# env:
+
+# Docker support for using container builds and tests
+services:
+  - docker
+
+# Dependencies for build system
+before_script:
+  - pip install invoke docker-compose poetry
+
+script:
+  - invoke build --python-ver $TRAVIS_PYTHON_VERSION
+  - invoke tests --python-ver $TRAVIS_PYTHON_VERSION
