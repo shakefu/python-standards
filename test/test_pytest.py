@@ -1,3 +1,7 @@
+import sys
+
+from unittest import mock
+
 import pytest
 
 
@@ -50,13 +54,20 @@ def test_dict_compare():
         assert {"foo": "bar"} == expected
 
 
+@mock.patch('sys.stdout')
+def test_mock_assert(stdout):
+    print("Testing.")
+    sys.stdout.write.assert_any_call('Testing.')
+    sys.stdout.write.assert_any_call('\n')
+
+
 def test_setup():
     # One for each module-level test already called, including this one, but
     # not including the test class
-    assert SETUP == 2
+    assert SETUP == 3
 
 
 def test_teardown():
     # One for each module-level test already called, not including this, or the
     # test class
-    assert TEARDOWN == 2
+    assert TEARDOWN == 3
