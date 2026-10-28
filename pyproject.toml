@@ -15,10 +15,10 @@ napalm = "^2.5.0"
 pytest = "^9.0.3"
 
 [tool.poetry.dev-dependencies]
-black = "^24.3.0"
+black = "^26.10.1"
 yamllint = "^1.23.0"
 bandit = "^1.6.2"
-pylint = "^2.5.2"
+pylint = "^4.0.9"
 pylint-django = "^2.0.15"
 pydocstyle = "^5.0.2"
 
